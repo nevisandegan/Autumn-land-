@@ -1,7 +1,3 @@
-import message from "./message";
-
-const Loading = () => {
-  return <div>{message.loading}</div>;
-};
-
-export default Loading;
+export default function Loading() {
+  return <p>LOADING DATA...</p>;
+}
