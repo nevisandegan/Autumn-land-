@@ -1,8 +1,21 @@
+
+
 import Link from "next/link";
 import Image from "next/image";
 import bg from "@/public/bg.png";
 
-export default function Page() {
+
+export default async function Page() {
+
+  // const data = await fetch('http://localhost:3000/api/users', {
+  //   method: "GET",
+  //   headers: {
+  //     'Content-Type': 'application/json' // تنظیم صحیح هدر
+  //   }
+  // })
+  // console.log(data.json())
+
+
   return (
     <main className="mt-24">
       <Image
