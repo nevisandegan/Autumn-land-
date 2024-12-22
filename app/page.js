@@ -7,14 +7,12 @@ import bg from "@/public/bg.png";
 
 export default async function Page() {
 
-  // const data = await fetch('http://localhost:3000/api/users', {
-  //   method: "GET",
-  //   headers: {
-  //     'Content-Type': 'application/json' // تنظیم صحیح هدر
-  //   }
-  // })
-  // console.log(data.json())
-
+  const data = await fetch('http://localhost:3000/api/users', {
+    method: "GET",
+    headers: {
+      'Content-Type': 'application/json' // تنظیم صحیح هدر
+    }
+  })
 
   return (
     <main className="mt-24">

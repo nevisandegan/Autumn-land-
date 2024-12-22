@@ -5,9 +5,12 @@ export const metadata = {
   title: "Cabins",
 };
 
-export default function Page() {
-  // CHANGE
-  const cabins = [];
+export default async function Page() {
+  const data = await fetch("http://localhost:3000/api/cabins", {
+    method: "GET",
+  });
+
+  const cabins = await data.json();
 
   return (
     <div>
@@ -23,9 +26,9 @@ export default function Page() {
         Welcome to paradise.
       </p>
 
-      {cabins.length > 0 && (
+      {cabins.data.length > 0 && (
         <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">
-          {cabins.map((cabin) => (
+          {cabins.data.map((cabin) => (
             <CabinCard cabin={cabin} key={cabin.id} />
           ))}
         </div>
