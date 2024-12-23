@@ -3,6 +3,7 @@ import Cabin from "@/app/_lib/models/cabin";
 import { NextResponse } from "next/server";
 
 export async function GET() {
+  console.log('hellow')
   await connectDb();
   try {
     const cabins = await Cabin.find();
