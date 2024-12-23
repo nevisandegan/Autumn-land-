@@ -2,12 +2,17 @@ import connectDb from "@/app/_lib/connectDB";
 import Cabin from "@/app/_lib/models/cabin";
 import { NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET({ params }) {
+ 
+  console.log(params);
+
+ 
+
   await connectDb();
   try {
-    const cabins = await Cabin.find();
+    const cabin = await Cabin.findById(cabinId);
     return NextResponse.json({
-      data: cabins,
+      data: cabin,
     });
   } catch (error) {
     return NextResponse.json({

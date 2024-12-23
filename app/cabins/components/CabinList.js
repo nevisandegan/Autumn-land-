@@ -1,10 +1,11 @@
 import React, { Suspense } from "react";
 import CabinCard from "./CabinCard";
 import CabinSkeleton from "./cabin-skeleton";
+import connectDb from "@/app/_lib/connectDB";
 
 const CabinList = async () => {
   const data = await fetch("http://localhost:3000/api/cabins", {
-    method: "GET",
+    cache: "no-store",
   });
   const cabins = await data.json();
 

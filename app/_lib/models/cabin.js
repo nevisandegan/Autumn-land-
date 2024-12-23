@@ -20,17 +20,12 @@ const cabinSchema = new mongoose.Schema(
     },
   },
   {
-    toJSON: { virtuals: true },
+    toJSON: {
+      virtuals: true,
+    },
     toObject: { virtuals: true },
   }
 );
-
-cabinSchema.post(/^find/, function (next) {
-  console.log("darone pre hastim");
-  this.start = Date.now();
-
-  next();
-});
 
 const Cabin = mongoose.models.Cabin || mongoose.model("Cabin", cabinSchema);
 

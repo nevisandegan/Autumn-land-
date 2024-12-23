@@ -13,7 +13,16 @@ const cabin = {
     "https://dclaevazetcjjkrzczpc.supabase.co/storage/v1/object/public/cabin-images/cabin-001.jpg",
 };
 
-export default function Page() {
+export default async function Page({ params }) {
+  const { cabinId } = params;
+
+
+
+  const data = await fetch(`http://localhost:3000/api/cabin/${cabinId}`, {
+    cache: "no-store",
+  });
+  // const cabins = await data.json();
+
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
     cabin;
 
