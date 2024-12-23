@@ -1,17 +1,17 @@
 import Counter from "@/app/_components/Counter";
-import CabinCard from "@/app/_components/CabinCard";
+import CabinCard from "@/app/cabins/components/CabinCard";
+import CabinList from "./components/CabinList";
+import { Suspense } from "react";
+
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import CabinSkeleton from "./components/cabin-skeleton";
 
 export const metadata = {
   title: "Cabins",
 };
 
 export default async function Page() {
-  const data = await fetch("http://localhost:3000/api/cabins", {
-    method: "GET",
-  });
-
-  const cabins = await data.json();
-
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -25,14 +25,9 @@ export default async function Page() {
         home away from home. The perfect spot for a peaceful, calm vacation.
         Welcome to paradise.
       </p>
-
-      {cabins.data.length > 0 && (
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">
-          {cabins.data.map((cabin) => (
-            <CabinCard cabin={cabin} key={cabin.id} />
-          ))}
-        </div>
-      )}
+      <Suspense fallback={<CabinSkeleton />}>
+        <CabinList />
+      </Suspense>
     </div>
   );
 }
