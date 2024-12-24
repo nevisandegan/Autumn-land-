@@ -2,7 +2,7 @@ import connectDb from "@/app/_lib/connectDB";
 import Cabin from "@/app/_lib/models/cabin";
 import { NextResponse } from "next/server";
 
-export async function GET(request, { params }) {
+export async function GET(_, { params }) {
   const { cabinId } = params;
 
   await connectDb();
@@ -12,8 +12,11 @@ export async function GET(request, { params }) {
       data: cabin,
     });
   } catch (error) {
-    return NextResponse.json({
-      message: "Error fetching posts",
-    });
+    return NextResponse.json(
+      {
+        message: "Error fetching posts",
+      },
+      { status: 404 }
+    );
   }
 }

@@ -4,6 +4,7 @@ import { Suspense } from "react";
 
 import CabinSkeleton from "../components/cabin-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { notFound } from "next/navigation";
 
 const CabinId = async ({ cabinId }) => {
   const data = await fetch(`http://localhost:3000/api/cabin/${cabinId}`, {
@@ -13,6 +14,10 @@ const CabinId = async ({ cabinId }) => {
 
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
     cabin.data;
+
+    if(!cabin){
+        console.log("first")
+    }
   return (
     <div className="max-w-6xl mx-auto mt-8">
       <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
