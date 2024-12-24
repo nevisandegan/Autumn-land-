@@ -2,11 +2,8 @@ import connectDb from "@/app/_lib/connectDB";
 import Cabin from "@/app/_lib/models/cabin";
 import { NextResponse } from "next/server";
 
-export async function GET({ params }) {
- 
-  console.log(params);
-
- 
+export async function GET(request, { params }) {
+  const { cabinId } = params;
 
   await connectDb();
   try {
