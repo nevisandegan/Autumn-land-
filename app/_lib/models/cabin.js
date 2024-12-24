@@ -18,6 +18,7 @@ const cabinSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    discription: String,
   },
   {
     toJSON: {

@@ -5,7 +5,7 @@ import { Suspense } from "react";
 
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import CabinSkeleton from "./components/cabin-skeleton";
+import CabinsSkeleton from "./components/cabins-skeleton";
 
 export const metadata = {
   title: "Cabins",
@@ -25,7 +25,7 @@ export default async function Page() {
         home away from home. The perfect spot for a peaceful, calm vacation.
         Welcome to paradise.
       </p>
-      <Suspense fallback={<CabinSkeleton />}>
+      <Suspense fallback={<CabinsSkeleton />}>
         <CabinList />
       </Suspense>
     </div>

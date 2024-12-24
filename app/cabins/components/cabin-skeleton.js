@@ -1,30 +1,43 @@
-import { UsersIcon } from "@heroicons/react/24/solid";
+import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
 
 function CabinSkeleton() {
   return (
-    <div className="grid grid-cols-12 gap-5 ">
-      {Array.from({ length: 4 }).map(() => (
-        <div className="col-span-6 flex border-primary-800 border rounded-sm">
-          <div className="flex-1 relative ">
-            <Skeleton height={200} />
-          </div>
-
-          <div className="flex-grow">
-            <div className="pt-5 pb-4 px-7 bg-primary-950">
-              <h3 className="text-accent-500 font-semibold text-2xl mb-3">
-                <Skeleton />
-              </h3>
-            </div>
-
-            <div className="bg-primary-950 border-t border-t-primary-800 text-right">
-              <Skeleton />
-            </div>
-          </div>
+    <div className="max-w-6xl mx-auto mt-8">
+      <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
+        <div className="relative  -translate-x-3">
+          <Skeleton height={200} />
         </div>
-      ))}
+
+        <div>
+          <h3 className="text-accent-100 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]">
+            <Skeleton />
+          </h3>
+
+          <p className="text-lg text-primary-300 mb-10">
+            <Skeleton count={5} />
+          </p>
+
+          <ul className="flex flex-col gap-4 mb-7">
+            <li>
+              <Skeleton />
+            </li>
+            <li>
+              <Skeleton />
+            </li>
+            <li>
+              <Skeleton />
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h2 className="text-5xl font-semibold text-center">
+          Reserve today. Pay on arrival.
+        </h2>
+      </div>
     </div>
   );
 }

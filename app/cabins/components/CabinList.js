@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import CabinCard from "./CabinCard";
-import CabinSkeleton from "./cabin-skeleton";
+import CabinSkeleton from "./cabins-skeleton";
 import connectDb from "@/app/_lib/connectDB";
 
 const CabinList = async () => {
