@@ -1,10 +1,5 @@
-import Counter from "@/app/_components/Counter";
-import CabinCard from "@/app/cabins/components/CabinCard";
 import CabinList from "./components/CabinList";
 import { Suspense } from "react";
-
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 import CabinsSkeleton from "./components/cabins-skeleton";
 
 export const metadata = {
@@ -31,3 +26,5 @@ export default async function Page() {
     </div>
   );
 }
+
+
