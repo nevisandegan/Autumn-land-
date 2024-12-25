@@ -6,8 +6,11 @@ import Skeleton from "react-loading-skeleton";
 function CabinsSkeleton() {
   return (
     <div className="grid grid-cols-12 gap-5 ">
-      {Array.from({ length: 4 }).map(() => (
-        <div className="col-span-6 flex border-primary-800 border rounded-sm">
+      {Array.from({ length: 4 }).map((_, index) => (
+        <div
+          key={index}
+          className="col-span-6 flex border-primary-800 border rounded-sm"
+        >
           <div className="flex-1 relative ">
             <Skeleton height={200} />
           </div>
