@@ -1,6 +1,7 @@
 import CabinList from "./components/CabinList";
 import { Suspense } from "react";
 import CabinsSkeleton from "./components/cabins-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export const metadata = {
   title: "Cabins",
@@ -26,5 +27,3 @@ export default async function Page() {
     </div>
   );
 }
-
-
