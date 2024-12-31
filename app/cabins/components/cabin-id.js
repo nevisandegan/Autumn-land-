@@ -62,7 +62,7 @@ const CabinId = async ({ cabinId }) => {
 
       <div>
         <h2 className="text-5xl font-semibold text-center">
-          Reserve today. Pay on arrival.
+          Reserve {name} today. Pay on arrival.
         </h2>
       </div>
     </div>
