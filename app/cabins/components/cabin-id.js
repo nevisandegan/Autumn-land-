@@ -1,3 +1,5 @@
+import DateSelector from "@/app/_components/DateSelector";
+import ReservationForm from "@/app/_components/ReservationForm";
 import TextExpander from "@/app/_components/TextExpander";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
@@ -11,8 +13,6 @@ const CabinId = async ({ cabinId }) => {
 
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
     cabin.data;
-
-
 
   return (
     <div className="max-w-6xl mx-auto mt-8">
@@ -61,9 +61,20 @@ const CabinId = async ({ cabinId }) => {
       </div>
 
       <div>
-        <h2 className="text-5xl font-semibold text-center">
+        <h2 className="text-5xl font-semibold text-center text-accent-400">
           Reserve {name} today. Pay on arrival.
         </h2>
+        <div
+          className="grid grid-cols-12 min-h-[400px] border
+         border-primary-800 mt-6"
+        >
+          <div className="col-span-5">
+            <DateSelector />
+          </div>
+          <div className="col-span-7">
+            <ReservationForm cabin={cabin.data} />
+          </div>
+        </div>
       </div>
     </div>
   );
