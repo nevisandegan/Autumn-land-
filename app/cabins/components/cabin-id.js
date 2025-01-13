@@ -1,6 +1,8 @@
 import DateSelector from "@/app/_components/DateSelector";
+import LoginMessage from "@/app/_components/LoginMessage";
 import ReservationForm from "@/app/_components/ReservationForm";
 import TextExpander from "@/app/_components/TextExpander";
+import { auth } from "@/app/_lib/auth";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -10,6 +12,7 @@ const CabinId = async ({ cabinId }) => {
     cache: "no-store",
   });
   const cabin = await data.json();
+  const session = await auth();
 
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
     cabin.data;
@@ -72,7 +75,11 @@ const CabinId = async ({ cabinId }) => {
             <DateSelector />
           </div>
           <div className="col-span-7">
-            <ReservationForm cabin={cabin.data} />
+            {session && session.user ? (
+              <ReservationForm cabin={cabin.data} />
+            ) : (
+              <LoginMessage />
+            )}
           </div>
         </div>
       </div>
