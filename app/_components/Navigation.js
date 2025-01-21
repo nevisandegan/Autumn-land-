@@ -9,6 +9,7 @@ export default async function Navigation() {
       <ul className="flex gap-16 items-center">
         <li>
           <Link
+            prefetch={false}
             href="/cabins"
             className="hover:text-accent-400 transition-colors"
           >
@@ -17,6 +18,7 @@ export default async function Navigation() {
         </li>
         <li>
           <Link
+            prefetch={false}
             href="/about"
             className="hover:text-accent-400 transition-colors"
           >
@@ -37,6 +39,7 @@ export default async function Navigation() {
             </div>
           ) : (
             <Link
+              prefetch={false}
               href="/account"
               className="hover:text-accent-400 transition-colors"
             >
